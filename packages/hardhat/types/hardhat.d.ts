@@ -46,9 +46,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IInputVerifier__factory>;
     getContractFactory(
-      name: "FHECounter",
+      name: "FHELaunchPrice",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.FHECounter__factory>;
+    ): Promise<Contracts.FHELaunchPrice__factory>;
 
     getContractAt(
       name: "EthereumConfig",
@@ -91,10 +91,10 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IInputVerifier>;
     getContractAt(
-      name: "FHECounter",
+      name: "FHELaunchPrice",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.FHECounter>;
+    ): Promise<Contracts.FHELaunchPrice>;
 
     deployContract(
       name: "EthereumConfig",
@@ -129,9 +129,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IInputVerifier>;
     deployContract(
-      name: "FHECounter",
+      name: "FHELaunchPrice",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.FHECounter>;
+    ): Promise<Contracts.FHELaunchPrice>;
 
     deployContract(
       name: "EthereumConfig",
@@ -174,10 +174,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IInputVerifier>;
     deployContract(
-      name: "FHECounter",
+      name: "FHELaunchPrice",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.FHECounter>;
+    ): Promise<Contracts.FHELaunchPrice>;
 
     // default types
     getContractFactory(
