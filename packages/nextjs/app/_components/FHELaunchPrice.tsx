@@ -3,11 +3,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { useFhevm } from "@fhevm-sdk";
 import { AnimatePresence, motion } from "framer-motion";
-import ReactApexChart from "react-apexcharts";
 import SquareLoader from "react-spinners/SquareLoader";
 import { useAccount } from "wagmi";
 import { RainbowKitCustomConnectButton } from "~~/components/helper/RainbowKitCustomConnectButton";
 import { useLaunchPrice } from "~~/hooks/useLaunchPrice";
+
+import dynamic from "next/dynamic";
+const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const MOCK_CHAIN_ID_SEPOLIA = 11155111;
 const ALCHEMY_URL = `https://eth-sepolia.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_API_KEY}`;
@@ -88,6 +90,10 @@ export const FHELaunchPrice = () => {
     [],
   );
 
+  function onReload() {
+    window && window.location.reload()
+  }
+
   if (!isConnected) {
     return (
       <div className="flex min-h-[calc(100vh-56px)] w-full items-center justify-center p-4">
@@ -149,7 +155,7 @@ export const FHELaunchPrice = () => {
             {launchPrice.isDecrypting ? "⏳ Decrypting..." : "🔓 Decrypt Value"}
           </button>
           <button
-            onClick={() => window.location.reload()}
+            onClick={onReload}
             className="px-5 py-3 rounded-xl font-semibold text-white transition-all duration-200 shadow-md bg-gray-600 hover:bg-gray-700"
           >
             🔄 Refresh Page
