@@ -1,19 +1,30 @@
-# FHEVM React Template
+# 🚀 FHELaunchPrice dApp
 
-A minimal React frontend template for building FHEVM-enabled decentralized applications (dApps). This template provides a simple development interface for interacting with FHEVM smart contracts, specifically the `FHECounter.sol` contract.
+A privacy-first React frontend for predicting the **initial launch price** of a token using **Fully Homomorphic Encryption (FHE)** on FHEVM. Users can submit encrypted price predictions, update them, and decrypt their own submissions while the contract stores **only encrypted data**.
 
-## 🚀 What is FHEVM?
+This project demonstrates a **secure, privacy-preserving dApp workflow** on FHEVM.
 
-FHEVM (Fully Homomorphic Encryption Virtual Machine) enables computation on encrypted data directly on Ethereum. This template demonstrates how to build dApps that can perform computations while keeping data private.
+---
 
 ## ✨ Features
 
-- **🔐 FHEVM Integration**: Built-in support for fully homomorphic encryption
-- **⚛️ React + Next.js**: Modern, performant frontend framework
-- **🎨 Tailwind CSS**: Utility-first styling for rapid UI development
-- **🔗 RainbowKit**: Seamless wallet connection and management
-- **🌐 Multi-Network Support**: Works on both Sepolia testnet and local Hardhat node
-- **📦 Monorepo Structure**: Organized packages for SDK, contracts, and frontend
+- 🔒 Submit encrypted price predictions (`uint32`) via FHE.
+- ✏️ Update your predictions anytime.
+- 🔓 Decrypt your own prediction securely.
+- 👥 Grant decryption rights to other addresses.
+- 📊 Candlestick chart visualization of your decrypted prediction.
+- 💼 Wallet integration via **RainbowKit + Wagmi**.
+
+---
+
+## 🛠 Stack
+
+- **Frontend:** React, TypeScript, Framer Motion, ApexCharts, Mantine  
+- **Blockchain:** FHEVM, Solidity 0.8.24  
+- **Wallet:** RainbowKit, Wagmi  
+- **Testing:** Hardhat, Chai, FHEVM Mock  
+
+---
 
 ## 📋 Prerequinextjss
 
@@ -31,7 +42,7 @@ Before you begin, ensure you have:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd fhevm-react-template
+cd fhevm-launch-price
 
 # Initialize submodules (includes fhevm-hardhat-template)
 git submodule update --init --recursive
@@ -124,7 +135,7 @@ For more details, see the [MetaMask development guide](https://docs.metamask.io/
 This template uses a monorepo structure with three main packages:
 
 ```
-fhevm-react-template/
+fhevm-launch-price/
 ├── packages/
 │   ├── fhevm-hardhat-template/    # Smart contracts & deployment
 │   ├── fhevm-sdk/                 # FHEVM SDK package
@@ -134,8 +145,8 @@ fhevm-react-template/
 
 ### Key Components
 
-#### 🔗 FHEVM Integration (`packages/nextjs/hooks/fhecounter-example/`)
-- **`useFHECounterWagmi.tsx`**: Example hook demonstrating FHEVM contract interaction
+#### 🔗 FHEVM Integration (`packages/nextjs/hooks`)
+- **`useLaunchPrice.ts`**: Example hook demonstrating FHEVM contract interaction
 - Essential hooks for FHEVM-enabled smart contract communication
 - Easily copyable to any FHEVM + React project
 
