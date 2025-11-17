@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/helper/contract";
 const deployedContracts = {
   11155111: {
     FHELaunchPrice: {
-      address: "0xDD9F2ACdD98C06c6E780325f0d44d34bC5A78823",
+      address: "0xBEAeC5adA773d1E8284640cC51E87cC3B9CfD6a4",
       abi: [
         {
           anonymous: false,
