@@ -1,6 +1,6 @@
 import type { FhevmInstance as _FhevmInstance } from "@zama-fhe/relayer-sdk/bundle";
 import type { HandleContractPair as _HandleContractPair } from "@zama-fhe/relayer-sdk/bundle";
-import type { DecryptedResults as _DecryptedResults } from "@zama-fhe/relayer-sdk/bundle";
+import type { UserDecryptResults as _DecryptedResults } from "@zama-fhe/relayer-sdk/bundle";
 import type { FhevmInstanceConfig as _FhevmInstanceConfig } from "@zama-fhe/relayer-sdk/web";
 
 export type FhevmInstance = _FhevmInstance;

@@ -17,30 +17,26 @@ import type {
 const _abi = [
   {
     inputs: [],
-    name: "HandlesAlreadySavedForRequestID",
-    type: "error",
-  },
-  {
-    inputs: [],
     name: "InvalidKMSSignatures",
-    type: "error",
-  },
-  {
-    inputs: [],
-    name: "NoHandleFoundForRequestID",
     type: "error",
   },
   {
     anonymous: false,
     inputs: [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "requestID",
-        type: "uint256",
+        indexed: false,
+        internalType: "bytes32[]",
+        name: "handlesList",
+        type: "bytes32[]",
+      },
+      {
+        indexed: false,
+        internalType: "bytes",
+        name: "abiEncodedCleartexts",
+        type: "bytes",
       },
     ],
-    name: "DecryptionFulfilled",
+    name: "PublicDecryptionVerified",
     type: "event",
   },
 ] as const;

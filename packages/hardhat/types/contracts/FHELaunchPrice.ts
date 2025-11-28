@@ -27,10 +27,10 @@ export interface FHELaunchPriceInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "allowDecryption"
+      | "confidentialProtocolId"
       | "encryptedGuessOf"
       | "hasSubmitted"
       | "lastGuessTimestamp"
-      | "protocolId"
       | "submitPriceGuess"
   ): FunctionFragment;
 
@@ -39,6 +39,10 @@ export interface FHELaunchPriceInterface extends Interface {
   encodeFunctionData(
     functionFragment: "allowDecryption",
     values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "confidentialProtocolId",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "encryptedGuessOf",
@@ -51,10 +55,6 @@ export interface FHELaunchPriceInterface extends Interface {
   encodeFunctionData(
     functionFragment: "lastGuessTimestamp",
     values: [AddressLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "protocolId",
-    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "submitPriceGuess",
@@ -66,6 +66,10 @@ export interface FHELaunchPriceInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "confidentialProtocolId",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "encryptedGuessOf",
     data: BytesLike
   ): Result;
@@ -77,7 +81,6 @@ export interface FHELaunchPriceInterface extends Interface {
     functionFragment: "lastGuessTimestamp",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "protocolId", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "submitPriceGuess",
     data: BytesLike
@@ -146,6 +149,8 @@ export interface FHELaunchPrice extends BaseContract {
     "nonpayable"
   >;
 
+  confidentialProtocolId: TypedContractMethod<[], [bigint], "view">;
+
   encryptedGuessOf: TypedContractMethod<[user: AddressLike], [string], "view">;
 
   hasSubmitted: TypedContractMethod<[user: AddressLike], [boolean], "view">;
@@ -155,8 +160,6 @@ export interface FHELaunchPrice extends BaseContract {
     [bigint],
     "view"
   >;
-
-  protocolId: TypedContractMethod<[], [bigint], "view">;
 
   submitPriceGuess: TypedContractMethod<
     [encryptedGuess: BytesLike, zkProof: BytesLike],
@@ -172,6 +175,9 @@ export interface FHELaunchPrice extends BaseContract {
     nameOrSignature: "allowDecryption"
   ): TypedContractMethod<[grantee: AddressLike], [void], "nonpayable">;
   getFunction(
+    nameOrSignature: "confidentialProtocolId"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
     nameOrSignature: "encryptedGuessOf"
   ): TypedContractMethod<[user: AddressLike], [string], "view">;
   getFunction(
@@ -180,9 +186,6 @@ export interface FHELaunchPrice extends BaseContract {
   getFunction(
     nameOrSignature: "lastGuessTimestamp"
   ): TypedContractMethod<[user: AddressLike], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "protocolId"
-  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "submitPriceGuess"
   ): TypedContractMethod<

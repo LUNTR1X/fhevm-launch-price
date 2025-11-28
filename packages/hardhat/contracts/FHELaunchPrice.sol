@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint32, externalEuint32} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /**
  * @title FHELaunchPrice
@@ -10,7 +10,7 @@ import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
  *         Users submit encrypted guesses; the contract stores only ciphertexts.
  * @dev Uses FHE to enable controlled decryption and verification.
  */
-contract FHELaunchPrice is SepoliaConfig {
+contract FHELaunchPrice is ZamaEthereumConfig {
     /// @dev Stores each user's encrypted price prediction
     mapping(address => euint32) private _encryptedGuesses;
 
